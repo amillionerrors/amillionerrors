@@ -4,6 +4,63 @@ layout: default
 
 <body>
   <main>
-      <h1>Welcome to A Million Errors!</h1>
+      <h1>HELP!!!! MY CODE HAS AN ERROR IN IT! MY HOMEWORK ASSIGNMENT IS DUE IN AN HOUR! I NEED HELP!!!</h1>
+      <p>
+        Does this sound familiar? Maybe you were the one panicking. Maybe you were the one reading this
+        sentence and thinking "why'd you wait until the last minute to do your homework?"
+      </p>
+      <p>
+        What <b><i>I</i></b> think when I see this is "what <i>is</i> the error?"
+      </p>
+      <p>
+        I often answer programming questions that I come across in online forums or discord servers.
+        It's also often painfully clear when someone doesn't take the time to describe the problem
+        they actually have. When you say "error", what exactly do you mean? I often use the saying
+        <blockquote>
+          There are a million ways something can "not work". Every single one of those is a different
+          problem with a different solution. I can't possibly know what's wrong without you describing
+          what the problem actually is.
+        </blockquote>
+        To show you what I mean, let me emulate what a help request I'm trying to discourage might look
+        like:
+        <blockquote>
+          My player isn't moving right or down. When I press down, it goes up. When it gets to the edge
+          of the screen, it doesn't move past it. When I move, the old one still shows up. Help me!
+          I don't know what I'm doing and ChatGPT said that I need to fill the screen, but when I do that
+          I don't see anything anymore. Help me!
+        </blockquote>
+
+
+        <button type="button" class="code-collapse">Show Code (not provided by user)</button>
+        <div class="code-block-collapse">
+{% highlight python linenos %}
+import pygame
+
+screen = pygame.display.set_mode((500, 500))
+
+player = pygame.Rect(250, 250, 30, 30)
+player_speed = 0.5 # bcuz it goes fast, make this smol
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_RIGHT]: # right arrow means go right
+        player.x += player_speed
+    if keys[pygame.K_LEFT]: # left arrow means go left
+        player.x -= player_speed
+    if keys[pygame.K_UP]: # up arrow means go up
+        player.y += player_speed
+    if keys[pygame.K_DOWN]: # down arrow means go down
+        player.y -= player_speed
+
+    pygame.draw.rect(screen, "red", player)
+    pygame.display.update()
+{% endhighlight %}
+        </div>
+      </p>
   </main>
 </body>
