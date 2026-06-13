@@ -2,3 +2,5 @@ title: A Million Errors
 remote_theme: pages-themes/hacker
 plugins:
 - jekyll-remote-theme
+url: "https://amillionerrors.com"
+baseurl: ""
